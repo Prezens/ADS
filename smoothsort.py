@@ -2,6 +2,7 @@ import heapq
 import time
 
 end_time = 0
+count_iteration = 0
 
 
 def numbers_leonardo(size):
@@ -85,6 +86,9 @@ def smooth_sort(list_heaps):
         if flag == 1:
             list_heaps.insert(0, heap_left)
             list_heaps.insert(0, heap_right)
+
+        global count_iteration
+        count_iteration += 1
 
     return result
 

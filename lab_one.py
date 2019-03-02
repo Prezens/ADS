@@ -129,6 +129,11 @@ def main():
             print('Вы ввели некорректные данные, повторите ввод')
             length_array = int(input('Длина массива > '))
 
+        fill_array = int(input('Хотите заполнить массив самостоятельно[0] или случайными числами[1]? > '))
+        while fill_array not in [0, 1]:
+            print('Вы ввели некорректные данные, повторите ввод')
+            fill_array = int(input('Хотите заполнить массив самостоятельно[0] или случайными числами[1]? > '))
+
         search_number = int(input('Искомое число > '))
 
         need_to_print_array = int(input('Если Вы хотите, чтобы массивы были напечатаны, то введите 1, иначе 0 > '))
@@ -150,8 +155,11 @@ def main():
         return main()
 
     array = []
-    for i in range(length_array):
-        array.append(random.randint(0, length_array * 3))
+    if fill_array == 0:
+        array = list(map(int, input().split()))
+    elif fill_array == 1:
+        for i in range(length_array):
+            array.append(random.randint(0, length_array * 3))
 
     lab = LabOne()
     lab.setter(array, search_number, length_array, choice_sort, choice_sort_filter)
@@ -170,8 +178,10 @@ def main():
 
     if choice_sort == 1:
         print('Время выполнения Плавной сортировки: {:.20f} секунд'.format(smoothsort.end_time))
+        print('Количество итераций Плавной сортировки:', smoothsort.count_iteration)
     else:
         print('Время выполнения сортировки Timsort: {:.20f} секунд'.format(timsort.end_time))
+        print('Количество итераций сортировки Timsort:', timsort.count_iteration)
 
 
 if __name__ == '__main__':

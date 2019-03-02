@@ -1,6 +1,7 @@
 import time
 
 end_time = 0
+count_iteration = 0
 
 
 def binary_search(the_array, item, start, end):
@@ -23,10 +24,14 @@ def binary_search(the_array, item, start, end):
 
 def insertion_sort(the_array):
     l = len(the_array)
+    print(the_array)
     for index in range(1, l):
         value = the_array[index]
+        print(value)
         pos = binary_search(the_array, value, 0, index - 1)
-        the_array = the_array[:pos] + [value] + the_array[pos:index] + the_array[index+1:]
+        print(pos)
+        the_array = the_array[:pos] + [value] + the_array[pos:index] + the_array[index + 1:]
+        print(the_array)
     return the_array
 
 
@@ -41,6 +46,7 @@ def merge(left, right):
 
 
 def timsort(the_array):
+    global count_iteration
     runs, sorted_runs = [], []
     l = len(the_array)
     new_run = [the_array[0]]
@@ -59,11 +65,13 @@ def timsort(the_array):
         else:
             new_run.append(the_array[i])
     for each in runs:
+        count_iteration += 1
         sorted_runs.append(insertion_sort(each))
 
     sorted_array = []
 
     for run in sorted_runs:
+        count_iteration += 1
         sorted_array = merge(sorted_array, run)
 
     return sorted_array
@@ -78,3 +86,6 @@ def run(input_list):
     end_time = (time.perf_counter() - start_time)
     print(end_time)
     return sorted_list
+
+
+print(timsort([49,154,127]))
