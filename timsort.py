@@ -24,14 +24,10 @@ def binary_search(the_array, item, start, end):
 
 def insertion_sort(the_array):
     l = len(the_array)
-    print(the_array)
     for index in range(1, l):
         value = the_array[index]
-        print(value)
         pos = binary_search(the_array, value, 0, index - 1)
-        print(pos)
         the_array = the_array[:pos] + [value] + the_array[pos:index] + the_array[index + 1:]
-        print(the_array)
     return the_array
 
 
@@ -86,6 +82,3 @@ def run(input_list):
     end_time = (time.perf_counter() - start_time)
     print(end_time)
     return sorted_list
-
-
-print(timsort([49,154,127]))
