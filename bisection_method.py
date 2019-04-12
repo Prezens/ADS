@@ -14,6 +14,7 @@ def bisection_method(a, b, f):
     x = (a + b) / 2
 
     while np.abs(a - b) >= e:
+        print(np.abs(a - b))
         x = (a + b) / 2
         if f(a) * f(x) > 0:
             a = x
