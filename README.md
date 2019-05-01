@@ -1,16 +1,7 @@
-# Lab1_Mansurov
-Лабораторная работа #1, предмет: Алгоритмы и структуры данных
+# Implementation of different algorithms and data structures in Python
 
-В программе используются:
-  python --version == 3.7
-  Парадигма - ООП
-  
-Реализованы:
-  Линейный поиск
-  Бинарный поиск
+Implementation:
+  Linear search
+  Binary search
   Smoothsort
   Timsort
-  
-Функционал:
-  Подсчет количества итераций в алгоритмах
-  Время выполнения алгоритмов
